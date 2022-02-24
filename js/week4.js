@@ -18,7 +18,7 @@ const app = createApp({
                 imagesUrl:[],
             },
             isNew:false,
-            pagination:{}
+            pagination:{},
         }
     },
     methods:{
@@ -34,7 +34,7 @@ const app = createApp({
             })
 
         },
-        getProducts(page=1){//參數預設值
+        getProducts(page){//參數預設值
             //query
             //param
             const url =`${site}/api/${api_path}/admin/products/?page=${page}`;
@@ -44,7 +44,7 @@ const app = createApp({
                console.log(Object.values(this.products))//物件轉陣列
                 Object.values(this.products).forEach((item)=>{
                     //console.log(item)
-                    this.pagination=res.data.pagination;
+                    this.pagination = res.data.pagination;
                 })
             })
 
