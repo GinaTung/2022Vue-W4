@@ -1,4 +1,5 @@
 import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.29/vue.esm-browser.min.js';
+import pagination from './pagination.js';
 
 //燈入及登入狀態、取得產品列表
 const site='https://vue3-course-api.hexschool.io/v2';
@@ -7,6 +8,9 @@ let productModal ={};
 let delProductModal ={};
 
 const app = createApp({
+    components:{
+        pagination
+    },
     data(){
         return{
             products:[],
@@ -30,10 +34,10 @@ const app = createApp({
             })
 
         },
-        getProducts(page){//參數預設值
+        getProducts(page=1){//參數預設值
             //query
             //param
-            const url =`${site}/api/${api_path}/admin/products/?page=2`;
+            const url =`${site}/api/${api_path}/admin/products/?page=${page}`;
             axios.get(url)
             .then((res)=>{
                 this.products =res.data.products;
