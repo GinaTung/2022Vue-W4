@@ -37,16 +37,16 @@ const app = createApp({
         getProducts(page){//參數預設值
             //query
             //param
-            const url =`${site}/api/${api_path}/admin/products/?page=${page}`;
+            const url =`${site}/api/${api_path}/admin/products/?page=2`;
             axios.get(url)
             .then((res)=>{
                 this.products =res.data.products;
                 this.pagination = res.data.pagination;
-               console.log(Object.values(this.products))//物件轉陣列
-                Object.values(this.products).forEach((item)=>{
-                    //console.log(item)
+            //    console.log(Object.values(this.products))//物件轉陣列
+            //     Object.values(this.products).forEach((item)=>{
+            //         //console.log(item)
                     
-                })
+            //     })
             })
 
         },
