@@ -34,10 +34,10 @@ const app = createApp({
             })
 
         },
-        getProducts(page){//參數預設值
+        getProducts(page =1){//參數預設值
             //query
             //param
-            const url =`${site}/api/${api_path}/admin/products/?page=2`;
+            const url =`${site}/api/${api_path}/admin/products/?page=${page}`;
             axios.get(url)
             .then((res)=>{
                 this.products =res.data.products;
