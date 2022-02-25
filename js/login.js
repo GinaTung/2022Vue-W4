@@ -6,9 +6,6 @@ const site='https://vue3-course-api.hexschool.io/v2';
 const path='yuling202202';
 
 
-
-
-
 const app = createApp({
     data(){
         return{
