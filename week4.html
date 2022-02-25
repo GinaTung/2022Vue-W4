@@ -19,7 +19,7 @@
             建立新的產品
           </button>
           <button type="button" class="btn w-10 btn-info " v-on:click="tempProduct=item">
-            <a href="https://ginatung.github.io/2022Vue-W4/" class="text-light "style="text-decoration:none;">回首頁</a>
+            <a href="https://ginatung.github.io/2022Vue-W3/" class="text-light "style="text-decoration:none;">回首頁</a>
             </button>
         </div>
         <table class="table mt-4">
@@ -66,8 +66,7 @@
             </tr>
           </tbody>
         </table>
-        <!-- 內層pages, 外層pagination --> 
-        <pagination :pages="pagination"></pagination>
+        <pagination></pagination>
       </div>
       <!-- Modal -->
       <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
