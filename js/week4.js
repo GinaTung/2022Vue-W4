@@ -67,22 +67,7 @@ const app = createApp({
                 
            
         },
-        updateProduct(){
-            let url =`${site}/api/${api_path}/admin/product`;
-            let method='post';
-
-            if(! this.isNew){
-                 url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
-                 method='put';
-            }
-            axios[method](url ,{ data: this.tempProduct })
-            .then((res)=>{
-                console.log(res)
-
-                this.getProducts();
-                productModal.hide();
-            });
-        },
+        
         delProduct(){
             let url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
 
@@ -106,6 +91,30 @@ const app = createApp({
         //   setTimeout(()=>{
         //       productModal.hide();
         //   },30000)
+    }
+})
+
+//全域
+app.component('productModal',{
+    props:['tempProduct'],
+    template:'#templateForProductModal',
+    methods:{
+        updateProduct(){
+            let url =`${site}/api/${api_path}/admin/product`;
+            let method='post';
+
+            if(! this.isNew){
+                 url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
+                 method='put';
+            }
+            axios[method](url ,{ data: this.tempProduct })
+            .then((res)=>{
+                console.log(res)
+
+                //this.getProducts();沒有getPRoduct (外層方法)
+                productModal.hide();
+            });
+        },
     }
 })
 app.mount('#app');
