@@ -57,6 +57,7 @@ const app = createApp({
                 productModal.show();
                 this.isNew =true;
             }else if( status ==='edit'){
+                // 編輯的部分可以加上 imagesUrl this.tempProduct = { imagesUrl: [], ...product };
                 this.tempProduct ={imagesUrl: [],...product};
                 productModal.show();
                 this.isNew =false;
@@ -105,6 +106,7 @@ app.component('productModal',{
                 productModal.hide();
                 
             })
+            // 補上 .catch 來回傳失敗的訊息
             .catch(function (error) {
                 console.log(error);
               });
