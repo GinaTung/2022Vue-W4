@@ -68,17 +68,7 @@ const app = createApp({
            
         },
         
-        delProduct(){
-            let url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
-
-            axios.delete(url)
-            .then((res)=>{
-                console.log(res)
-
-                this.getProducts();
-                delProductModal.hide();
-            });
-        }
+       
     },
     mounted(){
         this.checkLogin();
@@ -94,7 +84,7 @@ const app = createApp({
     }
 })
 
-//全域
+//全域 新增
 app.component('productModal',{
     props:['tempProduct'],
     template:'#templateForProductModal',
@@ -111,10 +101,37 @@ app.component('productModal',{
             .then((res)=>{
                 console.log(res)
                 //this.getProducts();沒有getPRoduct (外層方法)
-                this.$emit('get-product')
+                this.$emit('get-product');
                 productModal.hide();
             });
         },
     }
+})
+
+
+app.component('delProductModal',{
+    template: '#templateDelForProductModal',
+    props: ['item'],
+    methods:{
+        delProduct(){
+            let url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
+
+            axios.delete(url)
+            .then((res)=>{
+                console.log(res)
+
+                //this.getProducts();
+                this.$emit('update');
+                delProductModal.hide();
+            });
+        },
+        openModal() {
+          delProductModal.show();
+        },
+        hideModal() {
+          delProductModal.hide();
+        },
+      },
+    
 })
 app.mount('#app');
