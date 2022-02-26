@@ -67,8 +67,8 @@
           </tbody>
         </table>
         <!-- 內層get-product 外層 pagination-->
-        <!-- 內層 pages 外層 pagination -->
-        <pagination :pages="pagination" @get-product="pagination"></pagination>
+        <!-- 內層 pages 外層 getProducts -->
+        <pagination :pages="pagination" @get-product="getProducts"></pagination>
       </div>
       <!-- Modal -->
       <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
