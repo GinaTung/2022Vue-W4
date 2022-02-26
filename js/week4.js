@@ -121,7 +121,7 @@ app.component('delProductModal',{
                 console.log(res)
 
                 //this.getProducts();
-                this.$emit('update');
+                this.$emit('get-product');
                 delProductModal.hide();
             });
         },
