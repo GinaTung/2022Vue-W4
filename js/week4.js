@@ -57,12 +57,12 @@ const app = createApp({
                 productModal.show();
                 this.isNew =true;
             }else if( status ==='edit'){
-                this.tempProduct ={...product};
+                this.tempProduct ={imagesUrl: [],...product};
                 productModal.show();
                 this.isNew =false;
             }else if( status === 'delete'){
                 delProductModal.show();
-                this.tempProduct ={...product};
+                this.tempProduct ={imagesUrl: [],...product};
             }
                 
            
@@ -103,7 +103,12 @@ app.component('productModal',{
                 //this.getProducts();沒有getPRoduct (外層方法)
                 this.$emit('get-product');
                 productModal.hide();
-            });
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+              });
+            
         },
     }
 })
