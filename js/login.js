@@ -29,7 +29,7 @@ const app = createApp({
             })
             // 登入帳號密碼輸入錯誤時，可以加入 alert 彈跳視窗來顯示登入失敗訊息。
             .catch((error)=>{
-                console.log(error.data.message)
+                console.log(error.data)
                 if(error.data.message="登入失敗"){
                     alert('請填寫正確的帳號及密碼');
                 }
