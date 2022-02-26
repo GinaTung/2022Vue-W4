@@ -41,10 +41,10 @@ const app = createApp({
             .then((res)=>{
                 this.products =res.data.products;
                 this.pagination =res.data.pagination;
-               console.log(Object.values(this.products))//物件轉陣列
-                Object.values(this.products).forEach((item)=>{
-                    //console.log(item)
-                })
+            //    console.log(Object.values(this.products))//物件轉陣列
+            //     Object.values(this.products).forEach((item)=>{
+            //         //console.log(item)
+            //     })
             })
 
         },
