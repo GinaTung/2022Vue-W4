@@ -118,10 +118,10 @@ app.component('productModal',{
 
 app.component('delProductModal',{
     template: '#templateDelForProductModal',
-    props: ['tempProduct'],
+    props: ['item'],
     methods:{
         delProduct(){
-            let url =`${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
+            let url =`${site}/api/${api_path}/admin/product/${this.item.id}`;
 
             axios.delete(url)
             .then((res)=>{
